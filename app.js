@@ -6,3 +6,7 @@ function getRandomChoice() {
 
   return choices[randomIndexValue];
 }
+
+function computerPlay() {
+  return getRandomChoice();
+}

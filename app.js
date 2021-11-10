@@ -8,9 +8,9 @@ function getRandomChoice() {
 }
 
 function getPlayerChoice() {
-  let userInput = prompt("Choose by typing either rock, paper, or scissors").toLowerCase();
+  let userInput = prompt("Choose by typing either rock, paper, or scissors");
 
-  while (userInput.toLowerCase() in choices !== true) {
+  while (userInput?.toLowerCase() in choices !== true) {
     userInput = prompt("Incorrect input. Please type either rock, paper, or scissors");
   }
 

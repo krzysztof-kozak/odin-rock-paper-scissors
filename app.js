@@ -20,7 +20,7 @@ const style = {
 };
 
 function getPlayerChoice() {
-  let userInput = prompt("Choose by typing either rock, paper, or scissors");
+  let userInput = prompt("Type rock, paper, or scissors");
 
   while (userInput?.toLowerCase() in validChoices !== true) {
     userInput = prompt("Incorrect input. Please type either rock, paper, or scissors");

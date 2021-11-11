@@ -1,8 +1,23 @@
 const gameBtn = document.querySelector("button");
-
 gameBtn.addEventListener("click", startGame);
 
 const validChoices = { rock: "rock", paper: "paper", scissors: "scissors" };
+
+const style = {
+  round: [
+    "background-color: #000",
+    "color: #fff",
+    "padding: 4px 8px",
+    "border: 1px solid black",
+    "border-radius: 2px",
+  ],
+
+  result: "font-weight: bold;",
+
+  tie: "color: #562ea3;",
+  win: "color: #058b17fa;",
+  lose: "color: #fb091ee0;",
+};
 
 function getPlayerChoice() {
   let userInput = prompt("Choose by typing either rock, paper, or scissors");
@@ -11,7 +26,7 @@ function getPlayerChoice() {
     userInput = prompt("Incorrect input. Please type either rock, paper, or scissors");
   }
 
-  return userInput;
+  return userInput.toLowerCase();
 }
 
 function getComputerChoice() {
@@ -59,26 +74,30 @@ function startGame() {
     const playerChoice = getPlayerChoice();
     const computerChoice = getComputerChoice();
     const [resultMessage, winner] = playRound(playerChoice, computerChoice);
+    let messageStyle = style.result;
 
     if (winner === "player") {
+      messageStyle += style.win;
       playerScore += 1;
     } else if (winner === "computer") {
+      messageStyle += style.lose;
       ComputerScore += 1;
     } else {
+      messageStyle += style.tie;
       playerScore += 1;
       ComputerScore += 1;
     }
 
-    console.log(`Round ${roundNumber}`);
+    console.log(`%cRound ${roundNumber}`, style.round.join(";"));
     console.log("\n");
 
     console.log(`You chose ${playerChoice}, and the computer chose ${computerChoice}`);
-    console.log(resultMessage);
+    console.log(`%c${resultMessage}`, messageStyle);
     console.log(`Current score: Player = ${playerScore} || Computer = ${ComputerScore}`);
     console.log("\n");
 
     roundNumber += 1;
   }
 
-  console.log(`Final score: you = ${playerScore} || computer = ${ComputerScore}`);
+  console.log(`%cFinal score: you = ${playerScore} || computer = ${ComputerScore}`, style.result);
 }

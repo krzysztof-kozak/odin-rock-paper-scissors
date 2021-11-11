@@ -11,6 +11,15 @@ body {
 
 div {
   display: grid;
+  padding: 1em 1em;
+  background-color: #08083e75;
+  max-width: 80%;
+  border-radius: 16px;
+  box-shadow: 0 0 3px 1px #020202db;
+}
+
+strong {
+  color: #f50a0a;
 }
 
 p {

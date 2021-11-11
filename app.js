@@ -29,13 +29,48 @@ function playRound(playerSelection, computerSelection) {
     (p === choice.paper && c === choice.rock) ||
     (p === choice.scissors && c === choice.paper)
   ) {
-    return "Player won!";
+    return ["You won!", "player"];
   }
 
   if (p === c) {
-    return "It is a tie!";
+    return ["It is a tie!", "tie"];
   }
 
   // all remaining conditions are computer win conditions
-  return "Computer won!";
+  return ["Computer won!", "computer"];
 }
+
+function game() {
+  let playerScore = 0;
+  let ComputerScore = 0;
+  let roundNumber = 1;
+
+  while (roundNumber <= 5) {
+    const playerChoice = getPlayerChoice();
+    const computerChoice = getComputerChoice();
+    const [resultMessage, winner] = playRound(playerChoice, computerChoice);
+
+    if (winner === "player") {
+      playerScore += 1;
+    } else if (winner === "computer") {
+      ComputerScore += 1;
+    } else {
+      playerScore += 1;
+      ComputerScore += 1;
+    }
+
+    console.log(`Round ${roundNumber}`);
+    console.log("\n");
+
+    console.log(`You chose ${playerChoice}, and the computer chose ${computerChoice}`);
+    console.log(resultMessage);
+    console.log(`Current score: Player = ${playerScore} || Computer = ${ComputerScore}`);
+    console.log("\n");
+
+    roundNumber += 1;
+  }
+
+  console.log(`Final score: you = ${playerScore} || computer = ${ComputerScore}`);
+}
+
+game();

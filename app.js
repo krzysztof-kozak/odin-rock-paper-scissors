@@ -1,3 +1,7 @@
+const gameBtn = document.querySelector("button");
+
+gameBtn.addEventListener("click", startGame);
+
 const validChoices = { rock: "rock", paper: "paper", scissors: "scissors" };
 
 function getPlayerChoice() {
@@ -40,10 +44,16 @@ function playRound(playerSelection, computerSelection) {
   return ["Computer won!", "computer"];
 }
 
-function game() {
+function startGame() {
   let playerScore = 0;
   let ComputerScore = 0;
   let roundNumber = 1;
+
+  console.log("========");
+  console.log("========");
+  console.log("========");
+
+  console.log("\n\n\n");
 
   while (roundNumber <= 5) {
     const playerChoice = getPlayerChoice();
@@ -72,5 +82,3 @@ function game() {
 
   console.log(`Final score: you = ${playerScore} || computer = ${ComputerScore}`);
 }
-
-game();

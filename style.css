@@ -1,0 +1,39 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #08083edb;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  font-size: 1.5rem;
+}
+
+div {
+  display: grid;
+}
+
+p {
+  margin: 0;
+  color: #ffffffbd;
+  text-align: center;
+}
+
+p + p {
+  margin: 1em 0;
+}
+
+button {
+  all: unset;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.15em 0.75em;
+  background: #000000a3;
+  cursor: pointer;
+  justify-self: center;
+}
+
+button:active {
+  border-style: inset;
+  background-color: #0000005e;
+}

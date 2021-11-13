@@ -1,48 +1,26 @@
 body {
-  min-height: 100vh;
-  margin: 0;
-  background-color: #08083edb;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  font-size: 1.5rem;
-}
+	display: grid;
+	align-items: start;
 
-div {
-  display: grid;
-  padding: 1em 1em;
-  background-color: #08083e75;
-  max-width: 80%;
-  border-radius: 16px;
-  box-shadow: 0 0 3px 1px #020202db;
-}
+	min-height: 100vh;
+	margin: 0;
 
-strong {
-  color: #f50a0a;
-}
-
-p {
-  margin: 0;
-  color: #ffffffbd;
-  text-align: center;
-}
-
-p + p {
-  margin: 1em 0;
+	font-size: 1.5rem;
+	color: rgba(255, 255, 255, 0.85);
+	background-color: rgba(8, 8, 62, 0.859);
 }
 
 button {
-  all: unset;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 0.15em 0.75em;
-  background: #000000a3;
-  cursor: pointer;
-  justify-self: center;
+	all: unset;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 0.15em 0.75em;
+	background: rgba(0, 0, 0, 0.639);
+	cursor: pointer;
+	justify-self: center;
 }
 
 button:active {
-  border-style: inset;
-  background-color: #0000005e;
+	border-style: inset;
+	background-color: rgba(0, 0, 0, 0.369);
 }

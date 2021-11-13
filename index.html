@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./app.js" defer></script>
-    <link rel="stylesheet" href="./style.css" />
-    <title>Odin Project: Rock Paper Scissors</title>
-  </head>
-  <body>
-    <div>
-      <p>This project is currently without GUI (console only)</p>
-      <p>Open Developer Tools (F12) <strong>FIRST</strong> and <strong>THEN</strong> press Start</p>
-      <p>If you press Start before you open dev tools, you won't see the result untill round 5</p>
-      <button>Start</button>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="./app.js" defer></script>
+		<link rel="stylesheet" href="./style.css" />
+		<title>Odin Project: Rock Paper Scissors</title>
+	</head>
+	<body>
+		<div>
+			<button data-choice="rock">rock</button>
+			<button data-choice="paper">paper</button>
+			<button data-choice="scissors">scissors</button>
+		</div>
+
+		<p>Round: <span class="round-js">0</span></p>
+		<p>
+			You chose: <span class="playerChoice-js"></span> and the computer chose:
+			<span class="computerChoice-js"></span>
+		</p>
+		<p>Player score: <span class="playerScore-js">0</span></p>
+		<p>computer score: <span class="playerScore-js">0</span></p>
+	</body>
 </html>

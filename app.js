@@ -1,3 +1,53 @@
+const buttons = document.querySelector(".buttons-js");
+const roundCounter = document.querySelector(".round-js");
+
+const playerChoiceSpan = document.querySelector(".playerChoice-js");
+const computerChoiceSpan = document.querySelector(".computerChoice-js");
+
+const playerScoreSpan = document.querySelector(".playerScore-js");
+const computerScoreSpan = document.querySelector(".computerScore-js");
+
+buttons.addEventListener("click", playRound);
+
+const validChoices = { rock: "rock", paper: "paper", scissors: "scissors" };
+
+let playerScore = 0;
+let computerScore = 0;
+let roundNumber = 0;
+const maxRounds = 5;
+
+function playRound({ target: button }) {
+	if (roundNumber >= maxRounds) {
+		return;
+	}
+
+	const playerChoice = button.dataset.choice;
+	const computerChoice = getComputerChoice();
+	const winner = getRoundWinner(playerChoice, computerChoice);
+
+	if (winner === "player") {
+		playerScore += 1;
+	}
+
+	if (winner === "computer") {
+		computerScore += 1;
+	}
+
+	if (winner === "tie") {
+		playerScore += 1;
+		computerScore += 1;
+	}
+
+	roundNumber += 1;
+	roundCounter.textContent = roundNumber;
+
+	playerChoiceSpan.textContent = playerChoice;
+	computerChoiceSpan.textContent = computerChoice;
+
+	playerScoreSpan.textContent = playerScore;
+	computerScoreSpan.textContent = computerScore;
+}
+
 function getComputerChoice() {
 	const maxIndexValue = 2;
 	const randomIndexValue = Math.floor(Math.random() * (maxIndexValue + 1));
@@ -5,7 +55,7 @@ function getComputerChoice() {
 	return Object.keys(validChoices)[randomIndexValue];
 }
 
-function playRound(playerSelection, computerSelection) {
+function getRoundWinner(playerSelection, computerSelection) {
 	// this is to save us from typing playerSelection, computerSelection and validChoices every time.
 	const p = playerSelection;
 	const c = computerSelection;
@@ -26,29 +76,4 @@ function playRound(playerSelection, computerSelection) {
 
 	// all remaining conditions are computer win conditions
 	return "computer";
-}
-
-function startGame() {
-	let playerScore = 0;
-	let ComputerScore = 0;
-	let roundNumber = 1;
-
-	while (roundNumber <= 5) {
-		const playerChoice = getPlayerChoice();
-		const computerChoice = getComputerChoice();
-		const winner = playRound(playerChoice, computerChoice);
-
-		if (winner === "player") {
-			playerScore += 1;
-		} else if (winner === "computer") {
-			ComputerScore += 1;
-		} else {
-			playerScore += 1;
-			ComputerScore += 1;
-		}
-
-		roundNumber += 1;
-	}
-
-	console.log(`Final score: you = ${playerScore} || computer = ${ComputerScore}`);
 }

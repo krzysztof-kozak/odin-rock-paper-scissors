@@ -7,33 +7,48 @@ const computerChoiceSpan = document.querySelector(".computerChoice-js");
 const playerScoreSpan = document.querySelector(".playerScore-js");
 const computerScoreSpan = document.querySelector(".computerScore-js");
 
-buttons.addEventListener("click", playRound);
+const startGameBtn = document.querySelector(".start-game-js");
+const gameInfo = document.querySelector(".game-info-js");
+
+const modal = document.querySelector(".modal-js");
+const restartBtn = document.querySelector(".restart-js");
+
+const winnerParagraph = document.querySelector(".winner-js");
+
+startGameBtn.addEventListener("click", startGame);
 
 const validChoices = { rock: "rock", paper: "paper", scissors: "scissors" };
 
 let playerScore = 0;
 let computerScore = 0;
 let roundNumber = 0;
-const maxRounds = 5;
+
+function startGame() {
+	buttons.addEventListener("click", playRound);
+	restartBtn.removeEventListener("click", restartGame);
+
+	gameInfo.classList.toggle("hidden", false);
+	startGameBtn.classList.toggle("hidden", true);
+}
 
 function playRound({ target: button }) {
-	if (roundNumber >= maxRounds) {
+	if (!button.dataset.choice) {
 		return;
 	}
 
 	const playerChoice = button.dataset.choice;
 	const computerChoice = getComputerChoice();
-	const winner = getRoundWinner(playerChoice, computerChoice);
+	const roundWinner = getRoundWinner(playerChoice, computerChoice);
 
-	if (winner === "player") {
+	if (roundWinner === "player") {
 		playerScore += 1;
 	}
 
-	if (winner === "computer") {
+	if (roundWinner === "computer") {
 		computerScore += 1;
 	}
 
-	if (winner === "tie") {
+	if (roundWinner === "tie") {
 		playerScore += 1;
 		computerScore += 1;
 	}
@@ -46,6 +61,14 @@ function playRound({ target: button }) {
 
 	playerScoreSpan.textContent = playerScore;
 	computerScoreSpan.textContent = computerScore;
+
+	if (playerScore === 5 || computerScore === 5) {
+		const winner =
+			playerScore > computerScore ? "You" : computerScore > playerScore ? "Computer" : "Tie";
+		announceWinner(winner);
+		buttons.removeEventListener("click", playRound);
+		return;
+	}
 }
 
 function getComputerChoice() {
@@ -76,4 +99,43 @@ function getRoundWinner(playerSelection, computerSelection) {
 
 	// all remaining conditions are computer win conditions
 	return "computer";
+}
+
+function announceWinner(winner) {
+	restartBtn.addEventListener("click", restartGame);
+
+	if (winner === "Tie") {
+		winnerParagraph.textContent = "It's a tie!";
+		return;
+	}
+
+	winnerParagraph.textContent = `${winner} won!`;
+
+	modal.classList.toggle("hidden", false);
+
+	setTimeout(() => {
+		modal.style.opacity = 1;
+		modal.style.transform = "translateZ(0px)";
+	}, 500);
+}
+
+function restartGame() {
+	modal.classList.toggle("hidden", true);
+	modal.style.opacity = 0;
+	modal.style.transform = "";
+
+	gameInfo.classList.toggle("hidden", true);
+	startGameBtn.classList.toggle("hidden", false);
+
+	playerScore = 0;
+	computerScore = 0;
+	roundNumber = 0;
+
+	roundCounter.textContent = "";
+
+	playerChoiceSpan.textContent = "";
+	computerChoiceSpan.textContent = "";
+
+	playerScoreSpan.textContent = "";
+	computerScoreSpan.textContent = "";
 }

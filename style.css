@@ -13,6 +13,12 @@ body {
 	perspective: 10px;
 }
 
+@media (max-width: 600px) {
+	body {
+		font-size: 1.2rem;
+	}
+}
+
 p {
 	margin: 0;
 }
@@ -24,6 +30,12 @@ p {
 	box-shadow: 1px 1px 3px 3px #000000e3, -1px -1px 3px 3px #16cfcf73;
 	border-radius: 0.3em;
 	border: 2px solid #16cfcf;
+}
+
+@media (max-width: 600px) {
+	.content {
+		margin: 0 1em;
+	}
 }
 
 .grid {
@@ -53,6 +65,12 @@ p {
 	opacity: 0;
 }
 
+@media (max-width: 600px) {
+	.modal {
+		height: 25vh;
+	}
+}
+
 .restart {
 	font-size: 2rem;
 }
@@ -71,6 +89,12 @@ p {
 	justify-content: start;
 	grid-template-columns: repeat(3, auto);
 	grid-gap: 10%;
+}
+
+@media (max-width: 600px) {
+	.button-container {
+		grid-template-columns: 1fr;
+	}
 }
 
 .start-game {

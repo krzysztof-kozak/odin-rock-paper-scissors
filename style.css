@@ -64,11 +64,13 @@ p {
 	transform: translateZ(-50px);
 	transition: all 0.3s ease-in-out;
 	opacity: 0;
+	text-align: center;
 }
 
 @media (max-width: 600px) {
 	.modal {
 		height: 25vh;
+		font-size: 2rem;
 	}
 }
 

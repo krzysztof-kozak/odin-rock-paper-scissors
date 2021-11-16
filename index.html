@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./app.js" defer></script>
-    <link rel="stylesheet" href="./style.css" />
-    <title>Odin Project: Rock Paper Scissors</title>
-  </head>
-  <body>
-    <div>
-      <p>This project is currently without GUI (console only)</p>
-      <p>Open Developer Tools (F12) <strong>FIRST</strong> and <strong>THEN</strong> press Start</p>
-      <p>If you press Start before you open dev tools, you won't see the result untill round 5</p>
-      <button>Start</button>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="./app.js" defer></script>
+		<link rel="stylesheet" href="./style.css" />
+		<title>Odin Project: Rock Paper Scissors</title>
+	</head>
+	<body>
+		<div class="modal hidden modal-js">
+			<p class="winner-js"></p>
+			<button class="restart restart-js">restart</button>
+		</div>
+		<div class="content grid">
+			<div class="title">
+				<h1>Rock Paper Scissors</h1>
+				<p>First to 5 points wins</p>
+			</div>
+			<button class="start-game start-game-js">start</button>
+			<div class="hidden game-info game-info-js">
+				<div class="button-container buttons-js">
+					<button data-choice="rock">rock</button>
+					<button data-choice="paper">paper</button>
+					<button data-choice="scissors">scissors</button>
+				</div>
+				<div>
+					<p>You chose: <span class="choice playerChoice-js"></span></p>
+					<p>Computer chose: <span class="choice computerChoice-js"></span></p>
+				</div>
+				<div>
+					<p>Your score: <span class="score playerScore-js">0</span></p>
+					<p>Computer score: <span class="score computerScore-js">0</span></p>
+				</div>
+				<p>Round: <span class="round round-js"></span></p>
+			</div>
+		</div>
+	</body>
 </html>

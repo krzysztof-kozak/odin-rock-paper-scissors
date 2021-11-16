@@ -1,48 +1,109 @@
 body {
-  min-height: 100vh;
-  margin: 0;
-  background-color: #08083edb;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  font-size: 1.5rem;
-}
+	display: grid;
+	align-items: center;
+	justify-items: center;
 
-div {
-  display: grid;
-  padding: 1em 1em;
-  background-color: #08083e75;
-  max-width: 80%;
-  border-radius: 16px;
-  box-shadow: 0 0 3px 1px #020202db;
-}
+	min-height: 100vh;
+	margin: 0;
 
-strong {
-  color: #f50a0a;
+	font-size: 1.5rem;
+	color: rgba(255, 255, 255, 0.85);
+	background-color: rgba(8, 8, 62, 0.859);
+
+	perspective: 10px;
 }
 
 p {
-  margin: 0;
-  color: #ffffffbd;
-  text-align: center;
+	margin: 0;
 }
 
-p + p {
-  margin: 1em 0;
+.content {
+	max-width: 800px;
+	background-color: rgb(37 38 47);
+	padding: 2em;
+	box-shadow: 1px 1px 3px 3px #000000e3, -1px -1px 3px 3px #16cfcf73;
+	border-radius: 0.3em;
+	border: 2px solid #16cfcf;
+}
+
+.grid {
+	display: grid;
+	grid-template-rows: 1fr 3fr;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.modal {
+	display: flex;
+	gap: 10%;
+	flex-direction: column;
+	font-size: 3rem;
+	align-items: center;
+	justify-content: center;
+	width: 80vw;
+	height: 40vh;
+	background-color: rgb(63 64 126);
+	border: 5px solid rgb(0 0 0);
+	box-shadow: 0px 0px 3px 1px rgb(0 0 0);
+	position: absolute;
+	transform: translateZ(-50px);
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+}
+
+.restart {
+	font-size: 2rem;
+}
+
+.title {
+	text-align: center;
+	color: rgb(24 207 207);
+	margin-bottom: 1em;
+	box-shadow: 0 0 3px 4px rgba(0, 0, 0);
+	padding: 0.5em;
+	border-radius: 0.3em;
+}
+
+.button-container {
+	display: grid;
+	justify-content: start;
+	grid-template-columns: repeat(3, auto);
+	grid-gap: 10%;
+}
+
+.start-game {
+	align-self: center;
+	font-size: 3rem;
+	border-width: medium;
+}
+
+.game-info {
+	display: grid;
+	align-items: center;
 }
 
 button {
-  all: unset;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 0.15em 0.75em;
-  background: #000000a3;
-  cursor: pointer;
-  justify-self: center;
+	all: unset;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 0.15em 0.75em;
+	background: rgba(0, 0, 0, 0.639);
+	cursor: pointer;
+	justify-self: center;
 }
 
 button:active {
-  border-style: inset;
-  background-color: #0000005e;
+	border-style: inset;
+	background-color: rgba(0, 0, 0, 0.369);
+}
+
+.choice,
+.round {
+	color: rgb(251 192 45 / 74%);
+}
+
+.score {
+	color: rgb(42 252 79 / 67%);
 }

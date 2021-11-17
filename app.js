@@ -106,10 +106,9 @@ function announceWinner(winner) {
 
 	if (winner === "Tie") {
 		winnerParagraph.textContent = "It's a tie!";
-		return;
+	} else {
+		winnerParagraph.textContent = `${winner} won!`;
 	}
-
-	winnerParagraph.textContent = `${winner} won!`;
 
 	modal.classList.toggle("hidden", false);
 
